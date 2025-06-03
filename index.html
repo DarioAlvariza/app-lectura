@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Biblioteca</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+  <h1>📚 Mi Biblioteca</h1>
+
+  <form id="form-libro">
+    <input type="text" id="titulo" placeholder="Título del libro" required />
+    <input type="text" id="autor" placeholder="Autor" required />
+    <select id="estado" required>
+      <option value="">Selecciona estado</option>
+      <option value="quiero">Quiero leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+    </select>
+    <button type="submit">Agregar libro</button>
+  </form>
+
+  <section>
+    <h2>📖 Quiero Leer</h2>
+    <ul id="lista-quiero"></ul>
+
+    <h2>📘 Leyendo</h2>
+    <ul id="lista-leyendo"></ul>
+
+    <h2>✅ Leído</h2>
+    <ul id="lista-leido"></ul>
+  </section>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log("Service Worker registrado correctamente"))
+        .catch(err => console.error("Error al registrar el Service Worker:", err));
+    }
+  </script>
+</body>
+</html>
+
